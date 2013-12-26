@@ -1,0 +1,17 @@
+{
+  "name": "ping",
+  "version": "0.1.0",
+  "description": "[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)",
+  "main": "public/index.php",
+  "scripts": {
+    "test": "make test"
+  },
+  "author": "Tim Helfensdörfer <tim@visualappeal.de>",
+  "license": "MIT",
+  "dependencies": {
+    "bower": "~1.2.8",
+    "less": "~1.5.1",
+    "uglify-js": "~2.4.8"
+  },
+  "private": true
+}

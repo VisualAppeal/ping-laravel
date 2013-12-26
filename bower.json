@@ -1,0 +1,24 @@
+{
+  "name": "ping",
+  "version": "0.1.0",
+  "authors": [
+    "Tim Helfensdörfer <tim@visualappeal.de>"
+  ],
+  "description": "",
+  "main": "public/index.php",
+  "license": "MIT",
+  "homepage": "https://github.com/t-visualappeal/ping",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/js/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.0.*",
+    "highcharts.com": "3.0.*"
+  }
+}
