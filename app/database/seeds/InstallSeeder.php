@@ -1,7 +1,7 @@
 <?php
 
-class DevelopmentSeeder extends Seeder {
-
+class InstallSeeder extends Seeder
+{
 	/**
 	 * Run the database seeds.
 	 *
@@ -13,5 +13,4 @@ class DevelopmentSeeder extends Seeder {
 
 		$this->call('UserSeeder');
 	}
-
 }

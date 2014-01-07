@@ -65,4 +65,8 @@ return array(
 	'delete' => array(
 		'success' => 'Der Check :url wurde erfolgreich gelöscht! Du kannst den Check aber <a href=":restoreUrl" title="Check wiederherstellen">wiederherstellen</a>.'
 	),
+
+	'errors' => array(
+		'resolve-host' => 'Der Host :host konnte nicht aufgelöst werden',
+	),
 );

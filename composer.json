@@ -5,12 +5,14 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"cartalyst/sentry": "2.1.*"
+		"cartalyst/sentry": "2.1.*",
+		"rmccue/requests": "1.6.*"
 	},
 	"autoload": {
 		"classmap": [
 			"app/commands",
 			"app/controllers",
+			"app/jobs",
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",

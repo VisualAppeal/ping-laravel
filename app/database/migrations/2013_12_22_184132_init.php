@@ -58,6 +58,8 @@ class Init extends Migration {
 			$table->integer('check_id')->unsigned();
 			$table->smallInteger('status_code')->unsigned();
 			$table->smallInteger('rum');
+			$table->text('content')->nullable();
+			$table->text('headers')->nullable();
 			$table->boolean('success');
 
 			$table->timestamps();

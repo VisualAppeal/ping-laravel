@@ -49,7 +49,7 @@ reset:
 refresh:
 	@php artisan migrate:reset
 	@php artisan migrate
-	@php artisan db:seed --class="DevelopmentSeeder"
+	@php artisan db:seed --class=DevelopmentSeeder
 
 seed:
-	@php artisan db:seed --class="DevelopmentSeeder"
+	@php artisan db:seed --class=DevelopmentSeeder

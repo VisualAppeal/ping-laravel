@@ -8,6 +8,8 @@ class CheckResult extends Eloquent
 		'check_id',
 		'status_code',
 		'rum',
+		'content',
+		'headers',
 		'success',
 		'created_at',
 	);
