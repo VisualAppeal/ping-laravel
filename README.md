@@ -52,6 +52,7 @@ return array(
 	'locale' => 'en',
 	'timezone' => 'Europe/Berlin',
 );
+```
 
 For a normal installation you should create an `auth.php` which will create a default user on installation (at the moment you can not register):
 
