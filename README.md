@@ -1,3 +1,5 @@
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/d1c84f2e-5a58-465e-b49c-3d72f1f4c683/big.png)](https://insight.sensiolabs.com/account/widget?project=d1c84f2e-5a58-465e-b49c-3d72f1f4c683)
+
 This application monitors the uptime by making cURL requests to a defined set of websites and display the data in charts.
 
 The only languages currently available are english and german. You can edit the language files in `app/lang/[2_LETTER_COUNTRY_CODE]/*.php`. Just copy the english/german translation and edit the files. Pull requests are welcomed.
