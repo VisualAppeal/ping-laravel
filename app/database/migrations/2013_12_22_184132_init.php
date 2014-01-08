@@ -42,8 +42,8 @@ class Init extends Migration {
 			$table->integer('interval')->unsigned()->default(5);
 			$table->integer('notify_failed_checks')->unsigned()->default(1);
 			$table->boolean('notify_back_online')->default(true);
-			$table->integer('rum_satisfied')->unsigned()->default(4);
-			$table->integer('rum_tolerating')->unsigned()->default(16);
+			$table->integer('latency_satisfied')->unsigned()->default(4);
+			$table->integer('latency_tolerating')->unsigned()->default(16);
 			$table->boolean('paused')->default(false);
 
 			$table->timestamps();
@@ -57,7 +57,7 @@ class Init extends Migration {
 			$table->bigIncrements('id');
 			$table->integer('check_id')->unsigned();
 			$table->smallInteger('status_code')->unsigned();
-			$table->smallInteger('rum');
+			$table->smallInteger('latency');
 			$table->text('content')->nullable();
 			$table->text('headers')->nullable();
 			$table->boolean('success');

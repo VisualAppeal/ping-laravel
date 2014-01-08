@@ -27,7 +27,7 @@ class CheckSeeder extends Seeder
 			CheckResult::create(array(
 				'check_id' => $check->id,
 				'status_code' => $success ? 200 : 500,
-				'rum' => $success ? rand(2000, 4000) : rand(10000, 60000),
+				'latency' => $success ? rand(100, 4000) : rand(10000, 60000),
 				'success' => $success,
 				'created_at' => $start,
 			));
@@ -50,7 +50,7 @@ class CheckSeeder extends Seeder
 			CheckResult::create(array(
 				'check_id' => $check->id,
 				'status_code' => $success ? 200 : 500,
-				'rum' => $success ? rand(2000, 4000) : rand(10000, 60000),
+				'latency' => $success ? rand(100, 4000) : rand(10000, 60000),
 				'success' => $success,
 				'created_at' => $start,
 			));

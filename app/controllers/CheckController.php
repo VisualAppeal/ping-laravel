@@ -7,8 +7,8 @@ class CheckController extends BaseController
 		'url' => 'required|url',
 		'port' => 'required|integer|max:65536',
 		'interval' => 'required|integer',
-		'rum_satisfied' => 'required|integer|max:30',
-		'rum_tolerating' => 'required|integer|max:30',
+		'latency_satisfied' => 'required|integer|max:30',
+		'latency_tolerating' => 'required|integer|max:30',
 	);
 
 	public function index()
@@ -44,8 +44,8 @@ class CheckController extends BaseController
 				'interval' => 5,
 				'notify_failed_checks' => true,
 				'notify_back_online' => true,
-				'rum_satisfied' => 4,
-				'rum_tolerating' => 15,
+				'latency_satisfied' => 4,
+				'latency_tolerating' => 15,
 			)),
 			'companies' => Company::forUser(Sentry::getUser()->id)->lists('name', 'id'),
 		));
@@ -70,8 +70,8 @@ class CheckController extends BaseController
 				'interval' => $input['interval'],
 				'notify_failed_checks' => isset($input['notify_failed_checks']) ? true : false,
 				'notify_back_online' => isset($input['notify_back_online']) ? true : false,
-				'rum_satisfied' => $input['rum_satisfied'],
-				'rum_tolerating' => $input['rum_tolerating'],
+				'latency_satisfied' => $input['latency_satisfied'],
+				'latency_tolerating' => $input['latency_tolerating'],
 			));
 
 			Session::flash('success', trans('check.create.success', array('url' => $check->url)));
@@ -106,8 +106,8 @@ class CheckController extends BaseController
 			$check->interval = $input['interval'];
 			$check->notify_failed_checks = isset($input['notify_failed_checks']) ? true : false;
 			$check->notify_back_online = isset($input['notify_back_online']) ? true : false;
-			$check->rum_satisfied = $input['rum_satisfied'];
-			$check->rum_tolerating = $input['rum_tolerating'];
+			$check->latency_satisfied = $input['latency_satisfied'];
+			$check->latency_tolerating = $input['latency_tolerating'];
 			$check->save();
 
 			Session::flash('success', trans('check.edit.success', array('url' => $check->url)));

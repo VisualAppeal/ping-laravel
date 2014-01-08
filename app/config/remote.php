@@ -27,7 +27,6 @@ return array(
 	*/
 
 	'connections' => array(
-
 		'production' => array(
 			'host'      => '',
 			'username'  => '',
@@ -36,7 +35,6 @@ return array(
 			'keyphrase' => '',
 			'root'      => '/var/www',
 		),
-
 	),
 
 	/*
@@ -51,9 +49,7 @@ return array(
 	*/
 
 	'groups' => array(
-
 		'web' => array('production')
-
 	),
 
 );

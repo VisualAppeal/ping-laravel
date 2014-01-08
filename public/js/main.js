@@ -197,7 +197,7 @@ $(function() {
 	console.log('Init application...');
 
 	var $checkUptimeChart = $('#chart-check-uptime');
-	var $checkRumChart = $('#chart-check-rum');
+	var $checkLatencyChart = $('#chart-check-latency');
 
 	if ($checkUptimeChart.length) {
 		$.getJSON($checkUptimeChart.data('url'), function(json) {
@@ -269,9 +269,9 @@ $(function() {
 		});
 	}
 
-	if ($checkRumChart.length) {
-		$.getJSON($checkRumChart.data('url'), function(json) {
-			$checkRumChart.highcharts('StockChart', $.extend(true, {}, highchartsOptions,
+	if ($checkLatencyChart.length) {
+		$.getJSON($checkLatencyChart.data('url'), function(json) {
+			$checkLatencyChart.highcharts('StockChart', $.extend(true, {}, highchartsOptions,
 				{
 					chart: {
 						zoomType: 'x',
@@ -306,7 +306,7 @@ $(function() {
 						shared: true,
 						followPointer: true,
 						formatter: function() {
-							return Highcharts.dateFormat('%A, %e. %b, %H:%M', this.x) + '<br>' + '<b>' + this.y + ' ' + $checkRumChart.data('seconds') + '</b>';
+							return Highcharts.dateFormat('%A, %e. %b, %H:%M', this.x) + '<br>' + '<b>' + this.y + ' ' + $checkLatencyChart.data('seconds') + '</b>';
 						}
 					},
 					xAxis: {

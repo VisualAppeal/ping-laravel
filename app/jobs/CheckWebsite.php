@@ -14,16 +14,16 @@ class CheckWebsite
 
 
 		try {
-			$rumStart = microtime(true);
+			$latencyStart = microtime(true);
 			$response = Requests::get($check->url, $headers, $options);
-			$rum = round((microtime(true) - $rumStart) * 1000);
+			$latency = round((microtime(true) - $latencyStart) * 1000);
 		} catch (Requests_Exception $e) {
-			$rum = round((microtime(true) - $rumStart) * 1000);
+			$latency = round((microtime(true) - $latencyStart) * 1000);
 			if (CheckResult::create(array(
 				'check_id' => $check->id,
 				'status_code' => 0,
 				'success' => false,
-				'rum' => $rum,
+				'latency' => $latency,
 				'content' => trans('check.errors.resolve-host', array('host' => $check->url)),
 			))) {
 				$job->delete();
@@ -40,7 +40,7 @@ class CheckWebsite
 				'check_id' => $check->id,
 				'status_code' => $response->status_code,
 				'success' => $response->success,
-				'rum' => $rum,
+				'latency' => $latency,
 			))) {
 				$job->delete();
 			} else {
@@ -53,7 +53,7 @@ class CheckWebsite
 				'success' => $response->success,
 				'content' => $response->body,
 				'headers' => json_encode($response->headers->getValues()),
-				'rum' => $rum,
+				'latency' => $latency,
 			))) {
 				$job->delete();
 			} else {

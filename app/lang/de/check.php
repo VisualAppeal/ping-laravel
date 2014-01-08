@@ -29,7 +29,7 @@ return array(
 		'begin' => 'Begin',
 		'end' => 'Ende',
 		'duration' => 'Dauer',
-		'rum' => 'Real User Monitor',
+		'latency' => 'Latenz',
 		'delete' => 'Check löschen',
 	),
 
@@ -51,8 +51,8 @@ return array(
 		'interval' => 'Interval (in Minuten)',
 		'notify_failed_checks' => 'Benachrichtigung bei fehlgeschlagenen Checks',
 		'notify_back_online' => 'Benachrichtigung wenn Webseite wieder erreichbar',
-		'rum_satisfied' => 'RUM - Zufriedenstellend (in Sekunden)',
-		'rum_tolerating' => 'RUM - Toleriert (in Sekunden)',
+		'latency_satisfied' => 'Latenz - Zufriedenstellend (in Sekunden)',
+		'latency_tolerating' => 'Latenz - Toleriert (in Sekunden)',
 	),
 
 	'edit' => array(

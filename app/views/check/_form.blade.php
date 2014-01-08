@@ -112,26 +112,26 @@
 		</div>
 	</div>
 
-	<div class="form-group<?php if ($errors->has('rum_satisfied')): ?> has-error<?php endif; ?>">
-		{{ Form::label('rum_satisfied', trans('check.form.rum_satisfied'), array('class' => 'control-label col-sm-2')) }}
+	<div class="form-group<?php if ($errors->has('latency_satisfied')): ?> has-error<?php endif; ?>">
+		{{ Form::label('latency_satisfied', trans('check.form.latency_satisfied'), array('class' => 'control-label col-sm-2')) }}
 
 		<div class="col-sm-10 col-md-6">
-			{{ Form::text('rum_satisfied', null, array('class' => 'form-control')) }}
+			{{ Form::text('latency_satisfied', null, array('class' => 'form-control')) }}
 
-			@if ($errors->has('rum_satisfied'))
-				<span class="help-block">{{ $errors->first('rum_satisfied') }}</span>
+			@if ($errors->has('latency_satisfied'))
+				<span class="help-block">{{ $errors->first('latency_satisfied') }}</span>
 			@endif
 		</div>
 	</div>
 
-	<div class="form-group<?php if ($errors->has('rum_tolerating')): ?> has-error<?php endif; ?>">
-		{{ Form::label('rum_tolerating', trans('check.form.rum_tolerating'), array('class' => 'control-label col-sm-2')) }}
+	<div class="form-group<?php if ($errors->has('latency_tolerating')): ?> has-error<?php endif; ?>">
+		{{ Form::label('latency_tolerating', trans('check.form.latency_tolerating'), array('class' => 'control-label col-sm-2')) }}
 
 		<div class="col-sm-10 col-md-6">
-			{{ Form::text('rum_tolerating', null, array('class' => 'form-control')) }}
+			{{ Form::text('latency_tolerating', null, array('class' => 'form-control')) }}
 
-			@if ($errors->has('rum_tolerating'))
-				<span class="help-block">{{ $errors->first('rum_tolerating') }}</span>
+			@if ($errors->has('latency_tolerating'))
+				<span class="help-block">{{ $errors->first('latency_tolerating') }}</span>
 			@endif
 		</div>
 	</div>

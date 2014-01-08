@@ -37,14 +37,14 @@ class ApiController extends BaseController
 		return $check->getLog();
 	}
 
-	public function checkRum($id)
+	public function checkLatency($id)
 	{
 		$check = Check::findOrFail($id);
 
 		$data = DB::table('checks_results')
 			->select(array(
 				DB::raw('UNIX_TIMESTAMP(`created_at`) * 1000 AS `x`'),
-				DB::raw('`rum` AS `y`'),
+				DB::raw('`latency` AS `y`'),
 			))
 			->where('check_id', '=', $check->id)
 			->where('created_at', '>', DB::raw('NOW() - INTERVAL 1 WEEK'))
@@ -55,12 +55,12 @@ class ApiController extends BaseController
 			return array(
 				'x' => (int) $result->x,
 				'y' => (int) $result->y,
-				'color' => ($result->y / 1000 < $check->rum_tolerating) ? ($result->y / 1000 < $check->rum_satisfied) ? '#A1CF64' : '#F05940' : '#D95C5C'
+				'color' => ($result->y / 1000 < $check->latency_tolerating) ? ($result->y / 1000 < $check->latency_satisfied) ? '#A1CF64' : '#F05940' : '#D95C5C'
 			);
 		}, $data);
 
 		return array(array(
-			'name' => trans('check.rum'),
+			'name' => trans('check.latency'),
 			'data' => $data,
 		));
 	}

@@ -157,8 +157,8 @@ Route::group(array('before' => 'auth'), function() {
 		'uses' => 'ApiController@checkLog',
 	))->where('id', '\d+');
 
-	Route::get('/api/check/{id}/rum', array(
-		'as' => 'api.check.rum',
-		'uses' => 'ApiController@checkRum',
+	Route::get('/api/check/{id}/latency', array(
+		'as' => 'api.check.latency',
+		'uses' => 'ApiController@checkLatency',
 	))->where('id', '\d+');
 });

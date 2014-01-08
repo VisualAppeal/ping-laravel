@@ -17,8 +17,8 @@ class Check extends Eloquent
 		'interval',
 		'notify_failed_checks',
 		'notify_back_online',
-		'rum_satisfied',
-		'rum_tolerating',
+		'latency_satisfied',
+		'latency_tolerating',
 		'paused',
 	);
 

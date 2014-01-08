@@ -38,8 +38,8 @@
 		</tbody>
 	</table>
 
-	<h3>{{ trans('check.show.rum') }}</h3>
-	<div class="chart" id="chart-check-rum" data-url="{{ URL::route('api.check.rum', array('id' => $check->id)) }}" data-seconds="{{ trans('check.seconds') }}">
+	<h3>{{ trans('check.show.latency') }}</h3>
+	<div class="chart" id="chart-check-latency" data-url="{{ URL::route('api.check.latency', array('id' => $check->id)) }}" data-seconds="{{ trans('check.seconds') }}">
 	</div>
 
 	<p>

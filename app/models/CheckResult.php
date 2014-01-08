@@ -7,7 +7,7 @@ class CheckResult extends Eloquent
 	protected $fillable = array(
 		'check_id',
 		'status_code',
-		'rum',
+		'latency',
 		'content',
 		'headers',
 		'success',
