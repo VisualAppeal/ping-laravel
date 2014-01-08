@@ -4,7 +4,6 @@ The only languages currently available are english and german. You can edit the 
 
 ## Requirements
 
-* composer
 * npm (node.js package manger)
 
 ## Screenshots
