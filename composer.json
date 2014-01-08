@@ -34,6 +34,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "dev",
-	"private": true
+	"minimum-stability": "stable"
 }

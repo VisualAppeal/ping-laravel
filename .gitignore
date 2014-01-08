@@ -3,7 +3,5 @@
 /vendor
 
 /bootstrap/compiled.php
-.DS_Store
-Thumbs.db
 composer.phar
 composer.lock
