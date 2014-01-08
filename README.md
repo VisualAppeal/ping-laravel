@@ -80,3 +80,10 @@ return array(
 * Search in body for string when checking uptime
 * Fix translation issues
 * Unit Tests
+
+## Contributors, Credits and libraries
+
+* Framework: http://laravel.com/
+* User management: https://cartalyst.com/manual/sentry
+* Uptime check: https://github.com/rmccue/Requests/
+* Favicon: http://www.iconarchive.com/show/ivista-2-icons-by-gakuseisean/Files-Upload-File-icon.html
