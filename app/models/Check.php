@@ -40,7 +40,7 @@ class Check extends Eloquent
 		return $this->interval . ' ' . Lang::choice('check.diff.minutes', $this->interval);
 	}
 
-	public function scopeForUser($query, $userId)
+	public function scopeForUser(Illuminate\Database\Eloquent\Builder $query, $userId)
 	{
 		return $query->join('users_companies', 'users_companies.company_id', '=', 'checks.company_id')
 			->where(function($query) use($userId) {

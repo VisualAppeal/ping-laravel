@@ -2,7 +2,7 @@
 
 class CheckWebsite
 {
-	public function fire($job, $data)
+	public function fire(Illuminate\Queue\Jobs\Job $job, $data)
 	{
 		$check = Check::findOrFail($data);
 		$headers = array();

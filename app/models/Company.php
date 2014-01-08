@@ -11,7 +11,7 @@ class Company extends Eloquent
 		'name',
 	);
 
-	public function scopeForUser($query, $userId)
+	public function scopeForUser(Illuminate\Database\Eloquent\Builder $query, $userId)
 	{
 		return $query->join('users_companies', 'users_companies.company_id', '=', 'companies.id')
 			->where('users_companies.user_id', '=', $userId);

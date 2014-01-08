@@ -48,7 +48,7 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 
 App::error(function(Exception $exception, $code)
 {
-	Log::error($exception);
+	Log::error(sprintf('%d: %s', $code . ': ' . $exception->getMessage()));
 });
 
 /*
