@@ -75,6 +75,8 @@ class Check extends Eloquent
 		$offset = intval($offset);
 		$limit = intval($limit);
 
+		$controller = $this;
+
 		$data = DB::select(DB::raw('SELECT MIN(`created_at`) AS `start`,
 				MAX(`created_at`) AS `end`,
 				MAX(UNIX_TIMESTAMP(`created_at`)) - MIN(UNIX_TIMESTAMP(`created_at`)) + 1 `duration`,
@@ -96,12 +98,12 @@ class Check extends Eloquent
 			LIMIT ' . $offset . ', ' . $limit . ''
 		));
 
-		$data = array_map(function($date) {
+		$data = array_map(function($date) use($controller) {
 			return array(
 				'start' => new \Carbon\Carbon($date->start),
 				'end' => new \Carbon\Carbon($date->end),
 				'duration' => $date->duration,
-				'duration_locale' => $this->minutesToHuman($date->duration),
+				'duration_locale' => $controller->minutesToHuman($date->duration),
 				'success' => (bool) $date->success,
 			);
 		}, $data);
