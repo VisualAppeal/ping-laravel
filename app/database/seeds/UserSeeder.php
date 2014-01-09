@@ -28,10 +28,5 @@ class UserSeeder extends Seeder
 
 			$user->addGroup($adminGroup);
 		}
-
-		Sentry::register(array(
-			'email' => 'test@example.org',
-			'password' => 123456,
-		), true);
 	}
 }
