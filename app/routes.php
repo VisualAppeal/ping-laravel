@@ -83,6 +83,19 @@ Route::group(array('before' => 'auth'), function() {
 		'uses' => 'CompanyController@index',
 	));
 
+	Route::get('/companies/{id}/user/remove/{user}', array(
+		'as' => 'company.user.remove',
+		'uses' => 'CompanyController@removeUser',
+	))
+		->where('id', '\d+')
+		->where('user', '\d+');
+
+	Route::post('/companies/{id}/user/add', array(
+		'as' => 'company.user.add',
+		'uses' => 'CompanyController@addUser',
+	))
+		->where('id', '\d+');
+
 	Route::get('/company/{id}', array(
 		'as' => 'company.show',
 		'uses' => 'CompanyController@show',

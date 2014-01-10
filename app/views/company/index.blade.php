@@ -23,8 +23,13 @@
 							<td>{{{ $company->name }}}</td>
 							<td>
 								<ul>
-									@foreach ($company->users as $user)
-										<li>{{{ $user->email }}}</li>
+									@foreach ($company->users as $companyUser)
+										<li>
+											{{{ $companyUser->email }}}
+											@if ($company->user_id != $companyUser->id)
+												<a href="{{ URL::route('company.user.remove', array('id' => $company->id, 'user' => $companyUser->id)) }}"><i class="glyphicon glyphicon-trash"></i></a>
+											@endif
+										</li>
 									@endforeach
 								</ul>
 							</td>
@@ -39,11 +44,40 @@
 										<li><a href="{{ URL::route('company.edit', array('id' => $company->id)) }}">{{ trans('company.index.edit') }}</a></li>
 										<li><a href="{{ URL::route('company.delete', array('id' => $company->id)) }}">{{ trans('company.index.delete') }}</a></li>
 										<li class="divider"></li>
-										<li><a href="#">{{ trans('company.index.add-user') }}</a></li>
+										<li><a data-toggle="modal" href="#invite-user-to-{{ $company->id }}">{{ trans('company.index.add-user') }}</a></li>
 									</ul>
 								</div>
 							</td>
 						</tr>
+
+						<div class="modal fade" id="invite-user-to-{{ $company->id }}">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										<h4 class="modal-title">{{ trans('company.user.add.title') }}</h4>
+									</div>
+
+									<form method="post" action="{{ URL::route('company.user.add', array('id' => $company->id)) }}" class="form-horizontal">
+										<div class="modal-body">
+											<p>{{ trans('company.user.add.description') }}</p>
+
+											<div class="form-group">
+												<label class="control-label col-sm-3">{{ trans('company.user.add.user') }}</label>
+
+												<div class="col-sm-9">
+													<input type="text" class="form-control" name="invite_user_email">
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('company.user.add.close') }}</button>
+											<button type="submit" class="btn btn-primary">{{ trans('company.user.add.invite') }}</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
 					@endforeach
 				</tbody>
 			</table>

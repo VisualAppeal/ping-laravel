@@ -15,6 +15,62 @@ class CompanyController extends BaseController
 		));
 	}
 
+	public function addUser($id)
+	{
+		$company = Company::findOrFail($id);
+		$user = User::where('email', '=', Input::get('invite_user_email'))
+			->first();
+
+		if ($user === null) {
+			Session::flash('error', trans('company.user.add.user-not-found'));
+			return Redirect::route('company.index');
+		}
+
+		$userCompany = UserCompany::where('user_id', '=', $user->id)
+			->where('company_id', '=', $company->id)
+			->first();
+
+		if ($userCompany !== null) {
+			Session::flash('error', trans('company.user.add.user-already-added'));
+			return Redirect::route('company.index');
+		}
+
+		$userCompany = UserCompany::create(array(
+			'user_id' => $user->id,
+			'company_id' => $company->id,
+		));
+
+		Session::flash('success', trans('company.user.add.success'));
+		return Redirect::route('company.index');
+	}
+
+	public function removeUser($id, $userId)
+	{
+		$company = Company::findOrFail($id);
+		$user = User::findOrFail($userId);
+
+		if ($company->user_id == $user->id) {
+			Session::flash('error', trans('company.user.remove.not-creator'));
+			return Redirect::route('company.index');
+		}
+
+		$userCompany = UserCompany::where('user_id', '=', $user->id)
+			->where('company_id', '=', $company->id)
+			->first();
+
+		if ($userCompany === null) {
+			Session::flash('error', trans('company.user.remove.not-found'));
+			return Redirect::route('company.index');
+		}
+
+		$userCompany = UserCompany::where('user_id', '=', $user->id)
+			->where('company_id', '=', $company->id)
+			->delete();
+
+		Session::flash('info', trans('company.user.remove.success'));
+		return Redirect::route('company.index');
+	}
+
 	public function show($id)
 	{
 		$company = Company::findOrFail($id);
