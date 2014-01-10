@@ -72,6 +72,7 @@ return array(
 	'attributes' => array(
 		'name' => 'Name',
 		'company_id' => 'Unternehmen',
+		'email' => 'E-Mail',
 		'url' => 'URL',
 		'port' => 'Port',
 		'interval' => 'Intervall',

@@ -24,4 +24,35 @@ return array(
 			'submit' => 'Speichern',
 		),
 	),
+
+	'register' => array(
+		'title' => 'Registrieren',
+		'headline' => 'Neuen Benutzer anlegen',
+
+		'activation' => 'Ihr Konto wurde erfolgreich angelegt! Bitte prüfe deine E-Mails und bestätige sie mit einem Klick auf den Aktivierungs-Code.',
+		'email-required' => 'Du musst eine E-Mail Adresse angeben!',
+		'password-required' => 'Du musst ein Passwort angeben!',
+		'email-unique' => 'Es gibt bereits einen Benutzer mit dem Passwort! Möchtest du dich lieber <a href=":loginUrl">anmelden</a>?',
+
+		'form' => array(
+			'email' => 'E-Mail Adresse',
+			'password' => 'Passwort',
+			'password_repeat' => 'Passwort wiederholen',
+			'submit' => 'Registrieren',
+		),
+	),
+
+	'activate' => array(
+		'not-found' => 'Dein Aktivierungs-Code wurde nicht gefunden! Bitte registriere dich noch einmal.',
+		'success' => 'Dein Konto wurde erfolgreich aktiviert.',
+		'error' => 'Dein Konto konnte aus unbekannten Gründen nicht aktiviert werden. Bitte wende dich an den Kontakt',
+		'already-activated' => 'Du hast dein Konto schon aktiviert! Du kannst dich jetzt direkt anmelden.',
+
+		'email' => array(
+			'title' => 'E-Mail bestätigen',
+			'headline' => 'Bestätige deine E-Mail',
+			'subject' => 'Bestätige deine Ping Konto',
+			'content' => 'Deine E-Mail Adresse wurde benutzt um dich bei Ping zu registrieren! <a href=":url">Bestätige</a> jetzt deine E-Mail oder ignoriere sie wenn du dich nicht registriert hast.',
+		),
+	),
 );

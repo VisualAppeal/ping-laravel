@@ -39,6 +39,23 @@ Route::post('/login', array(
 	'before' => 'csrf',
 ));
 
+Route::get('/register', array(
+	'as' => 'user.register',
+	'uses' => 'UserController@register',
+));
+
+Route::post('/register', array(
+	'as' => 'user.do-register',
+	'uses' => 'UserController@doRegister',
+	'before' => 'csrf',
+));
+
+Route::get('/activate/{code}', array(
+	'as' => 'user.activate',
+	'uses' => 'UserController@activate',
+))
+	->where('code', '\w+');
+
 Route::group(array('before' => 'auth'), function() {
 	/**
 	 * Users

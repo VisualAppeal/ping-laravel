@@ -36,6 +36,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						@if ($guest)
 							<li><a href="{{ URL::route('user.login') }}"><i class="glyphicon glyphicon-user"></i> {{ trans('base.nav.login') }}</a></li>
+							<li><a href="{{ URL::route('user.register') }}">{{ trans('base.nav.register') }}</a></li>
 						@else
 							<li><a href="{{ URL::route('user.account') }}"><i class="glyphicon glyphicon-user"></i> {{ trans('base.nav.account') }}</a></li>
 							<li><a href="{{ URL::route('user.logout') }}"><i class="glyphicon glyphicon-off"></i> {{ trans('base.nav.logout') }}</a></li>
