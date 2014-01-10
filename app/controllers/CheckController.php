@@ -44,8 +44,8 @@ class CheckController extends BaseController
 				'interval' => 5,
 				'notify_failed_checks' => true,
 				'notify_back_online' => true,
-				'latency_satisfied' => 4,
-				'latency_tolerating' => 15,
+				'latency_satisfied' => 2,
+				'latency_tolerating' => 5,
 			)),
 			'companies' => Company::forUser(Sentry::getUser()->id)->lists('name', 'id'),
 		));
