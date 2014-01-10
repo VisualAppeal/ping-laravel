@@ -98,6 +98,7 @@ class CheckController extends BaseController
 
 		$validator = Validator::make($input, $this->rules);
 		if ($validator->passes()) {
+			$check->company_id = $input['company_id'];
 			$check->url = $input['url'];
 			$check->port = $input['port'];
 			$check->username = !empty($input['username']) ? $input['username'] : null;
