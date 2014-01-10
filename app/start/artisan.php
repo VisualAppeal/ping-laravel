@@ -12,3 +12,4 @@
 */
 
 Artisan::add(new CheckCommand);
+Artisan::add(new DeployCommand);
