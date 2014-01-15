@@ -50,6 +50,7 @@ class DeployCommand extends Command {
 			'cd '.$config['root'],
 			'git checkout -f',
 			'git pull -f',
+			'make',
 			'php artisan cache:clear',
 		);
 

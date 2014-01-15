@@ -69,5 +69,4 @@ class CheckCommand extends Command {
 	{
 		return array();
 	}
-
 }

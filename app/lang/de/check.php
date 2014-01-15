@@ -69,4 +69,22 @@ return array(
 	'errors' => array(
 		'resolve-host' => 'Der Host :host konnte nicht aufgelöst werden',
 	),
+
+	'job' => array(
+		'email' => array(
+			'online' => array(
+				'subject' => '[ping] :title ist wieder online!',
+				'title' => ':title ist online',
+				'headline' => ':title ist online',
+				'content' => '<a href=":url">:title</a> ist wieder erreichbar.',
+			),
+
+			'offline' => array(
+				'subject' => '[ping] :title ist offline!',
+				'title' => ':title ist offline',
+				'headline' => ':title ist offline',
+				'content' => ':title ist aufgrund eines Fehlers <a href=":url">:code</a> nicht erreichbar!',
+			),
+		),
+	),
 );

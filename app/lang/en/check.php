@@ -69,4 +69,22 @@ return array(
 	'errors' => array(
 		'resolve-host' => 'Host :host could not be resolved',
 	),
+
+	'job' => array(
+		'email' => array(
+			'online' => array(
+				'subject' => '[ping] :title is back online!',
+				'title' => ':title is online',
+				'headline' => ':title is online',
+				'content' => '<a href=":url">:title</a> is online again.',
+			),
+
+			'offline' => array(
+				'subject' => '[ping] :title is offline!',
+				'title' => ':title is offline',
+				'headline' => ':title is offline',
+				'content' => ':title is offline because of the error <a href=":url">:code</a>!',
+			),
+		),
+	),
 );
