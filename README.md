@@ -77,8 +77,6 @@ return array(
 
 ## ToDo
 
-* Notifications!
-* Add users to companies!
 * Dashboard!
 * Search in body for string when checking uptime
 * Fix translation issues
