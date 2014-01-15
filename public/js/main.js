@@ -146,6 +146,11 @@ if (typeof Highcharts != 'undefined') {
 				borderColor: '#999'
 			}
 		},
+		plotOptions: {
+			area: {
+				turboThreshold: 0
+			}
+		},
 		rangeSelector: {
 			buttonTheme: {
 				fill: 'none',
