@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('title')
-	{{ trans('check.show.title', array('url' => $check->url)) }}
+	{{ trans('check.show.title', array('title' => $check->title)) }}
 @stop
 
 @section('content')
-	<h2>{{ trans('check.show.headline', array('url' => $check->url)) }} <small><a href="{{ URL::route('check.edit', array('id' => $check->id)) }}" title="{{ trans('check.show.edit') }}"><i class="glyphicon glyphicon-pencil"></i></a></small></h2>
+	<h2>{{ trans('check.show.headline', array('title' => $check->title)) }} <small><a href="{{ URL::route('check.edit', array('id' => $check->id)) }}" title="{{ trans('check.show.edit') }}"><i class="glyphicon glyphicon-pencil"></i></a></small></h2>
 
 	<h3>{{ trans('check.show.uptime') }}</h3>
 	<div class="chart" id="chart-check-uptime" data-url="{{ URL::route('api.check.uptime', array('id' => $check->id)) }}" data-seconds="{{ trans('check.seconds') }}">

@@ -22,8 +22,8 @@ return array(
 	),
 
 	'show' => array(
-		'title' => 'Check :url',
-		'headline' => ':url',
+		'title' => 'Check :title',
+		'headline' => ':title',
 		'uptime' => 'Verfügbarkeit',
 		'success' => 'Verfügbar',
 		'begin' => 'Beginn',

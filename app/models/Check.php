@@ -22,6 +22,14 @@ class Check extends Eloquent
 		'paused',
 	);
 
+	public function getTitleAttribute()
+	{
+		$title = str_replace(array('http://', 'https://'), '', $this->url);
+		$title = str_replace('www.', '', $title);
+
+		return $title;
+	}
+
 	public function getStatusOkAttribute()
 	{
 		$results = $this->results()
