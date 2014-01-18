@@ -22,7 +22,7 @@
 						<tr>
 							<td>{{{ $company->name }}}</td>
 							<td>
-								<ul>
+								<ul class="list-unstyled">
 									@foreach ($company->users as $companyUser)
 										<li>
 											{{{ $companyUser->email }}}
