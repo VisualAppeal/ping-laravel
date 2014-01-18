@@ -26,6 +26,9 @@ class Check extends Eloquent
 	{
 		$title = str_replace(array('http://', 'https://'), '', $this->url);
 		$title = str_replace('www.', '', $title);
+		$title = str_finish($title, '/');
+
+		$title = substr($title, 0, strlen($title) - 1);
 
 		return $title;
 	}
