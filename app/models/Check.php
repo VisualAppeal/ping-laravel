@@ -48,6 +48,11 @@ class Check extends Eloquent
 		return $this->interval . ' ' . Lang::choice('check.diff.minutes', $this->interval);
 	}
 
+	public function isPaused()
+	{
+		return (bool) ($this->paused);
+	}
+
 	public function scopeForUser(Illuminate\Database\Eloquent\Builder $query, $userId)
 	{
 		return $query->join('users_companies', 'users_companies.company_id', '=', 'checks.company_id')

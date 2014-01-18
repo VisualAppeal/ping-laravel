@@ -19,6 +19,8 @@ return array(
 		'show' => 'Display',
 		'edit' => 'Edit',
 		'delete' => 'Delete',
+		'pause' => 'Pause',
+		'unpause' => 'Continue',
 	),
 
 	'show' => array(
@@ -86,5 +88,13 @@ return array(
 				'content' => ':title is offline because of the error <a href=":url">:code</a>!',
 			),
 		),
+	),
+
+	'pause' => array(
+		'success' => 'The check was successfully paused.',
+	),
+
+	'unpause' => array(
+		'success' => 'The check is queued again.',
 	),
 );

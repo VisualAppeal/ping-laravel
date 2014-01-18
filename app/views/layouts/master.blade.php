@@ -28,8 +28,8 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					@if (!$guest)
 						<ul class="nav navbar-nav">
-							<li><a href="{{ URL::route('company.index') }}">{{ trans('base.nav.companies') }}</a></li>
 							<li><a href="{{ URL::route('check.index') }}">{{ trans('base.nav.checks') }}</a></li>
+							<li><a href="{{ URL::route('company.index') }}">{{ trans('base.nav.companies') }}</a></li>
 						</ul>
 					@endif
 

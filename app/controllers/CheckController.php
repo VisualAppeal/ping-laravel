@@ -137,4 +137,24 @@ class CheckController extends BaseController
 
 		return Redirect::route('check.show', array('id' => $check->id));
 	}
+
+	public function pause($id)
+	{
+		$check = Check::findOrFail($id);
+		$check->paused = true;
+		$check->save();
+
+		Session::flash('success', trans('check.pause.success'));
+		return Redirect::route('check.index');
+	}
+
+	public function unpause($id)
+	{
+		$check = Check::findOrFail($id);
+		$check->paused = false;
+		$check->save();
+
+		Session::flash('success', trans('check.unpause.success'));
+		return Redirect::route('check.index');
+	}
 }

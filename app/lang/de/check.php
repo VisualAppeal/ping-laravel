@@ -19,6 +19,8 @@ return array(
 		'show' => 'Anzeigen',
 		'edit' => 'Bearbeiten',
 		'delete' => 'Löschen',
+		'pause' => 'Pausieren',
+		'unpause' => 'Wieder prüfen',
 	),
 
 	'show' => array(
@@ -86,5 +88,13 @@ return array(
 				'content' => ':title ist aufgrund eines Fehlers <a href=":url">:code</a> nicht erreichbar!',
 			),
 		),
+	),
+
+	'pause' => array(
+		'success' => 'Der Check wurde erfolgerich pausiert.',
+	),
+
+	'unpause' => array(
+		'success' => 'Der Check wird wieder ausgeführt.',
 	),
 );

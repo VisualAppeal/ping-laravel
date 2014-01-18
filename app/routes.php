@@ -16,17 +16,10 @@ View::composer('*', function($view) use($user, $guest) {
 /**
  * Account
  */
-if ($guest) {
-	Route::get('/', array(
-		'as' => 'home',
-		'uses' => 'HomeController@index',
-	));
-} else {
-	Route::get('/', array(
-		'as' => 'home',
-		'uses' => 'DashboardController@index',
-	));
-}
+Route::get('/', array(
+	'as' => 'home',
+	'uses' => 'HomeController@index',
+));
 
 Route::get('/login', array(
 	'as' => 'user.login',
@@ -172,6 +165,16 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/check/{id}/restore', array(
 		'as' => 'check.restore',
 		'uses' => 'CheckController@restore',
+	))->where('id', '\d+');
+
+	Route::get('/check/{id}/pause', array(
+		'as' => 'check.pause',
+		'uses' => 'CheckController@pause',
+	))->where('id', '\d+');
+
+	Route::get('/check/{id}/unpause', array(
+		'as' => 'check.unpause',
+		'uses' => 'CheckController@unpause',
 	))->where('id', '\d+');
 
 	/**
