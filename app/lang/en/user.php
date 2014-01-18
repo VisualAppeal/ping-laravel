@@ -5,6 +5,12 @@ return array(
 		'title' => 'Login',
 		'headline' => 'Login',
 
+		'no-email' => 'The email address is required!',
+		'not-activated' => 'The account is not activated!',
+		'unknown' => 'The email address or password is wrong!',
+		'suspended' => 'The account was deactivated!',
+		'banned' => 'The account was closed!',
+
 		'form' => array(
 			'email' => 'Email address',
 			'password' => 'Password',

@@ -5,6 +5,12 @@ return array(
 		'title' => 'Anmelden',
 		'headline' => 'Anmelden',
 
+		'no-email' => 'Keine E-Mail Adresse angegeben!',
+		'not-activated' => 'Konto noch nicht aktiviert!',
+		'unknown' => 'Die E-Mail Adresse oder das Passwort ist falsch!',
+		'suspended' => 'Das Konto wurde deaktiviert!',
+		'banned' => 'Das Konto wurde gesperrt!',
+
 		'form' => array(
 			'email' => 'E-Mail Adresse',
 			'password' => 'Passwort',
