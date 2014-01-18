@@ -12,6 +12,7 @@ return array(
 		'headline' => 'Checks',
 		'empty' => 'Du hast noch keine Checks erstellt. Möchtest du <a href=":createUrl" title="Erstelle deinen ersten Check">jetzt einen Check erstellen</a>?',
 		'create' => 'Check erstellen',
+		'24h' => 'Letzte 24h',
 		'url' => 'URL',
 		'user' => 'Benutzer',
 		'company' => 'Unternehmen',

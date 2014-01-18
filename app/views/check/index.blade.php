@@ -13,6 +13,7 @@
 				<thead>
 					<tr>
 						<th></th>
+						<th>{{ trans('check.index.24h') }}</th>
 						<th>{{ trans('check.index.url') }}</th>
 						<th>{{ trans('check.index.user') }}</th>
 						<th>{{ trans('check.index.company') }}</th>
@@ -31,6 +32,10 @@
 								@else
 									<i class="glyphicon glyphicon-remove"></i>
 								@endif
+							</td>
+							<td>
+								<span class="label label-success">{{ $check->successCount(24) }}</span>&nbsp;
+								<span class="label label-<?php if ($check->errorCount(24) > 0): ?>danger<?php else: ?>default<?php endif; ?>">{{ $check->errorCount(24) }}</span>
 							</td>
 							<td>{{{ $check->url }}}</td>
 							<td>{{{ $check->theUser->email }}}</td>

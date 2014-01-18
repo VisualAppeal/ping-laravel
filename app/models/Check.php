@@ -124,6 +124,24 @@ class Check extends Eloquent
 		return $data;
 	}
 
+	private function statusCount($success, $hours)
+	{
+		return CheckResult::where('check_id', '=', $this->id)
+			->where('success', '=', $success)
+			->where('created_at', '>=', DB::raw(sprintf('DATE_SUB(NOW(), INTERVAL %s HOUR)', $hours)))
+			->count();
+	}
+
+	public function successCount($hours = 1)
+	{
+		return $this->statusCount(1, $hours);
+	}
+
+	public function errorCount($hours = 1)
+	{
+		return $this->statusCount(0, $hours);
+	}
+
 	public function theUser()
 	{
 		return $this->belongsTo('User', 'user_id');
