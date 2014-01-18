@@ -21,35 +21,37 @@ Route::get('/', array(
 	'uses' => 'HomeController@index',
 ));
 
-Route::get('/login', array(
-	'as' => 'user.login',
-	'uses' => 'UserController@login',
-));
+Route::group(array((Config::get('app.forceSsl')) ? 'https' : 'http'), function() {
+	Route::get('/login', array(
+		'as' => 'user.login',
+		'uses' => 'UserController@login',
+	));
 
-Route::post('/login', array(
-	'as' => 'user.do-login',
-	'uses' => 'UserController@doLogin',
-	'before' => 'csrf',
-));
+	Route::post('/login', array(
+		'as' => 'user.do-login',
+		'uses' => 'UserController@doLogin',
+		'before' => 'csrf',
+	));
 
-Route::get('/register', array(
-	'as' => 'user.register',
-	'uses' => 'UserController@register',
-));
+	Route::get('/register', array(
+		'as' => 'user.register',
+		'uses' => 'UserController@register',
+	));
 
-Route::post('/register', array(
-	'as' => 'user.do-register',
-	'uses' => 'UserController@doRegister',
-	'before' => 'csrf',
-));
+	Route::post('/register', array(
+		'as' => 'user.do-register',
+		'uses' => 'UserController@doRegister',
+		'before' => 'csrf',
+	));
 
-Route::get('/activate/{code}', array(
-	'as' => 'user.activate',
-	'uses' => 'UserController@activate',
-))
-	->where('code', '\w+');
+	Route::get('/activate/{code}', array(
+		'as' => 'user.activate',
+		'uses' => 'UserController@activate',
+	))
+		->where('code', '\w+');
+});
 
-Route::group(array('before' => 'auth'), function() {
+Route::group(array('before' => 'auth', (Config::get('app.forceSsl')) ? 'https' : 'http'), function() {
 	/**
 	 * Users
 	 */
