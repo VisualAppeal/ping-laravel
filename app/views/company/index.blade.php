@@ -33,19 +33,21 @@
 									@endforeach
 								</ul>
 							</td>
-							<td>
-								<div class="btn-group">
-										<a class="btn btn-default" href="{{ URL::route('company.show', array('id' => $company->id)) }}">{{ trans('company.index.show') }}</a>
-										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-										<span class="caret"></span>
-										<span class="sr-only">{{ trans('company.index.toggle') }}</span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="{{ URL::route('company.edit', array('id' => $company->id)) }}">{{ trans('company.index.edit') }}</a></li>
-										<li><a href="{{ URL::route('company.delete', array('id' => $company->id)) }}">{{ trans('company.index.delete') }}</a></li>
-										<li class="divider"></li>
-										<li><a data-toggle="modal" href="#invite-user-to-{{ $company->id }}">{{ trans('company.index.add-user') }}</a></li>
-									</ul>
+							<td class="clearfix">
+								<div class="pull-right">
+									<div class="btn-group">
+											<a class="btn btn-default" href="{{ URL::route('company.show', array('id' => $company->id)) }}">{{ trans('company.index.show') }}</a>
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+											<span class="caret"></span>
+											<span class="sr-only">{{ trans('company.index.toggle') }}</span>
+										</button>
+										<ul class="dropdown-menu" role="menu">
+											<li><a href="{{ URL::route('company.edit', array('id' => $company->id)) }}">{{ trans('company.index.edit') }}</a></li>
+											<li><a href="{{ URL::route('company.delete', array('id' => $company->id)) }}">{{ trans('company.index.delete') }}</a></li>
+											<li class="divider"></li>
+											<li><a data-toggle="modal" href="#invite-user-to-{{ $company->id }}">{{ trans('company.index.add-user') }}</a></li>
+										</ul>
+									</div>
 								</div>
 							</td>
 						</tr>

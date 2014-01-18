@@ -36,22 +36,24 @@
 							<td>{{{ $check->theUser->email }}}</td>
 							<td>{{{ $check->theCompany->name }}}</td>
 							<td>{{{ $check->intervalFormatted }}}</td>
-							<td>
-								<div class="btn-group">
-										<a class="btn btn-default" href="{{ URL::route('check.show', array('id' => $check->id)) }}">{{ trans('check.index.show') }}</a>
-										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-										<span class="caret"></span>
-										<span class="sr-only">{{ trans('check.index.toggle') }}</span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="{{ URL::route('check.edit', array('id' => $check->id)) }}"><span class="glyphicon glyphicon-pencil"></span> {{ trans('check.index.edit') }}</a></li>
-										@if ($check->isPaused())
-											<li><a href="{{ URL::route('check.unpause', array('id' => $check->id)) }}"><span class="glyphicon glyphicon-play"></span> {{ trans('check.index.unpause') }}</a></li>
-										@else
-											<li><a href="{{ URL::route('check.pause', array('id' => $check->id)) }}"><span class="glyphicon glyphicon-stop"></span> {{ trans('check.index.pause') }}</a></li>
-										@endif
-										<li><a href="{{ URL::route('check.delete', array('id' => $check->id)) }}"><span class="glyphicon glyphicon-trash"></span> {{ trans('check.index.delete') }}</a></li>
-									</ul>
+							<td class="clearfix">
+								<div class="pull-right">
+									<div class="btn-group">
+											<a class="btn btn-default" href="{{ URL::route('check.show', array('id' => $check->id)) }}">{{ trans('check.index.show') }}</a>
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+											<span class="caret"></span>
+											<span class="sr-only">{{ trans('check.index.toggle') }}</span>
+										</button>
+										<ul class="dropdown-menu" role="menu">
+											<li><a href="{{ URL::route('check.edit', array('id' => $check->id)) }}"><span class="glyphicon glyphicon-pencil"></span> {{ trans('check.index.edit') }}</a></li>
+											@if ($check->isPaused())
+												<li><a href="{{ URL::route('check.unpause', array('id' => $check->id)) }}"><span class="glyphicon glyphicon-play"></span> {{ trans('check.index.unpause') }}</a></li>
+											@else
+												<li><a href="{{ URL::route('check.pause', array('id' => $check->id)) }}"><span class="glyphicon glyphicon-stop"></span> {{ trans('check.index.pause') }}</a></li>
+											@endif
+											<li><a href="{{ URL::route('check.delete', array('id' => $check->id)) }}"><span class="glyphicon glyphicon-trash"></span> {{ trans('check.index.delete') }}</a></li>
+										</ul>
+									</div>
 								</div>
 							</td>
 						</tr>
