@@ -15,7 +15,7 @@ class CheckController extends BaseController
 	{
 		$checks = Check::forUser(Sentry::getUser()->id)->with('theCompany')->get();
 		$checks = $checks->filter(function($check) {
-			if (isset($check->theUser->id) and isset($check->theCompany->id))
+			if (isset($check->theUser->id) && isset($check->theCompany->id))
 				return $check;
 			else
 				return null;

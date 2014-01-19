@@ -38,7 +38,7 @@ class CheckWebsite
 			->first();
 
 		if ($response->success) {
-			if (isset($lastCheck) and !$lastCheck->success) {
+			if (isset($lastCheck) && !$lastCheck->success) {
 				Mail::queue('email.check.online', array('check' => $check), function($message) use($check) {
 					$message->to($check->theUser->email)
 						->subject(trans('check.job.email.online.subject', array('title' => $check->title)));
@@ -56,7 +56,7 @@ class CheckWebsite
 				$job->release();
 			}
 		} else {
-			if (isset($lastCheck) and $lastCheck->success) {
+			if (isset($lastCheck) && $lastCheck->success) {
 				Mail::queue('email.check.offline', array('check' => $check, 'response' => $response), function($message) use($check) {
 					$message->to($check->theUser->email)
 						->subject(trans('check.job.email.offline.subject', array('title' => $check->title)));
