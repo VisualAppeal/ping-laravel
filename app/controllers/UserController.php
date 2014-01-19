@@ -32,7 +32,7 @@ class UserController extends BaseController
 			if (Session::get('redirectUri', false) !== false)
 				return Redirect::to(Session::get('redirectUri'));
 			else
-				return Redirect::route('home');
+				return Redirect::route('check.index');
 		} catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
 			Session::flash('error', trans('user.login.no-email'));
 		} catch (Cartalyst\Sentry\Users\UserNotActivatedException $e) {
