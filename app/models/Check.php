@@ -110,7 +110,7 @@ class Check extends Eloquent
 				ORDER BY `t`.`created_at`
 			) q
 			GROUP BY `group_number`
-			ORDER BY `start`
+			ORDER BY `start` DESC
 			LIMIT ' . $offset . ', ' . $limit . ''
 		));
 
