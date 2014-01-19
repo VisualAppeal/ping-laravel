@@ -54,7 +54,7 @@ return array(
 );
 ```
 
-For a normal installation you should create an `auth.php` which will create a default user on installation (at the moment you can not register):
+For a normal installation you should create an `auth.php` which will create a admin after installation:
 
 ```php
 <?php
