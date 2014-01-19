@@ -34,6 +34,14 @@
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
+				<label>
+					{{ Form::checkbox('remember') }} {{ trans('user.login.form.remember') }}
+				</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-primary">{{ trans('user.login.form.submit') }}</button>
 			</div>
 		</div>

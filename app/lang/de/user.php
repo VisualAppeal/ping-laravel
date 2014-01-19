@@ -14,6 +14,7 @@ return array(
 		'form' => array(
 			'email' => 'E-Mail Adresse',
 			'password' => 'Passwort',
+			'remember' => 'Angemeldet bleiben',
 			'submit' => 'Anmelden',
 		),
 	),

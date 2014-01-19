@@ -21,11 +21,13 @@ class UserController extends BaseController
 	{
 		try {
 			$user = Sentry::findUserByCredentials(array(
-				'email' => $_POST['email'],
-				'password' => $_POST['password'],
+				'email' => isset($_POST['email']) ? $_POST['email'] : '',
+				'password' => isset($_POST['password']) ? $_POST['password'] : '',
 			));
 
-			Sentry::login($user);
+			$remember = isset($_POST['remember']) ? true : false;
+
+			Sentry::login($user, $remember);
 
 			if (Session::get('redirectUri', false) !== false)
 				return Redirect::to(Session::get('redirectUri'));
