@@ -48,6 +48,88 @@ class UserController extends BaseController
 		return Redirect::back()->withInput();
 	}
 
+	public function loginGithub()
+	{
+		$code = Input::get('code');
+		$email = Input::get('email');
+		$github = OAuth::consumer('GitHub');
+
+		if (!empty($email)) {
+			$user = User::where('email', '=', $email)->first();
+
+			if (isset($user)) {
+				Session::flash('warning', trans('user.register.social.already-exists'));
+				return Redirect::route('user.register');
+			}
+
+			$user = Sentry::createUser(array(
+				'email' => $email,
+				'password' => md5(time() . uniqid()),
+				'activated' => true,
+			));
+
+			UserGitHub::create(array(
+				'user_id' => $user->id,
+				'access_token' => Input::get('access_token'),
+				'refresh_token' => !empty(Input::get('refresh_token')) ? Input::get('refresh_token') : null,
+				'end_of_life' => !empty(Input::get('end_of_life')) ? Input::get('end_of_life') : null,
+			));
+
+			$user = Sentry::findUserByLogin($user->email);
+			Sentry::login($user, false);
+
+			Session::flash('success', trans('user.register.social.success'));
+			return Redirect::route('home');
+		} elseif (empty($code)) {
+			$url = $github->getAuthorizationUri(array(
+				'state' => md5(time() . uniqid()),
+				'redirect_uri' => URL::route('user.login.github'),
+			));
+
+			return Response::make()->header('Location', (string) $url);
+		} else {
+			$token = $github->requestAccessToken($code);
+			$emails = json_decode($github->request('/user/emails'), true);
+
+			if (!is_array($emails) || count($emails) === 0) {
+				Session::flash('error', trans('user.register.social.no-emails'));
+				return Redirect::route('user.register');
+			}
+
+			if (count($emails) <= 1) {
+				$user = User::where('email', '=', $emails[0])->first();
+
+				if (isset($user)) {
+					Session::flash('warning', trans('user.register.social.already-exists'));
+					return Redirect::route('user.register');
+				}
+
+				$user = Sentry::createUser(array(
+					'email' => $emails[0],
+					'password' => md5(time() . uniqid()),
+					'activated' => true,
+				));
+
+				UserGitHub::create(array(
+					'user_id' => $user->id,
+					'access_token' => $token->getAccessToken(),
+					'refresh_token' => !empty($token->getRefreshToken()) ? $token->getRefreshToken() : null,
+					'end_of_life' => !empty($token->getEndOfLife()) ? $token->getEndOfLife() : null,
+				));
+
+				Sentry::login($user, false);
+
+				Session::flash('success', trans('user.register.social.success'));
+				return Redirect::route('home');
+			}
+
+			return View::make('user.social', array(
+				'emails' => $emails,
+				'token' => $token,
+			));
+		}
+	}
+
 	public function register()
 	{
 		return View::make('user.register');

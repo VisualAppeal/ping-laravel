@@ -25,7 +25,7 @@
 			{{ Form::label('first_name', trans('user.account.form.first_name'), array('class' => 'col-sm-2 control-label')) }}
 
 			<div class="col-sm-10">
-				{{ Form::text('first_name', null, array('class' => 'form-control')) }}
+				{{ Form::text('first_name', null, array('class' => 'form-control', 'autocomplete' => 'off')) }}
 				@if ($errors->has('email'))
 					<span class="help-block">{{ $errors->first('first_name') }}</span>
 				@endif
@@ -36,7 +36,7 @@
 			{{ Form::label('last_name', trans('user.account.form.last_name'), array('class' => 'col-sm-2 control-label')) }}
 
 			<div class="col-sm-10">
-				{{ Form::text('last_name', null, array('class' => 'form-control')) }}
+				{{ Form::text('last_name', null, array('class' => 'form-control', 'autocomplete' => 'off')) }}
 				@if ($errors->has('email'))
 					<span class="help-block">{{ $errors->first('last_name') }}</span>
 				@endif
@@ -47,7 +47,7 @@
 			{{ Form::label('old-password', trans('user.account.form.old-password'), array('class' => 'col-sm-2 control-label')) }}
 
 			<div class="col-sm-10">
-				{{ Form::password('old-password', array('class' => 'form-control')) }}
+				{{ Form::password('old-password', array('class' => 'form-control', 'autocomplete' => 'off')) }}
 				@if ($errors->has('old-password'))
 					<span class="help-block">{{ $errors->first('old-password') }}</span>
 				@endif

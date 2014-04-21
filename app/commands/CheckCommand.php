@@ -44,7 +44,6 @@ class CheckCommand extends Command {
 				->count();
 
 			if ($hasChecked == 0) {
-				$this->comment(sprintf('Queue check #%d', $check->id));
 				Queue::push('CheckWebsite', $check->id);
 			}
 		}

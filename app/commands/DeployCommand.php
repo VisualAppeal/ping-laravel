@@ -47,15 +47,17 @@ class DeployCommand extends Command {
 		$config = app()->config['remote.connections.'.$remote];
 
 		$commands = array(
+			'php artisan down',
 			'cd '.$config['root'],
 			'git checkout -f',
 			'git pull -f',
 			'make',
 			'php artisan cache:clear',
+			'php artisan up',
 		);
 
 		if($this->option('migrate'))
-			$commands[] = 'php artisan migrate';
+			$commands[] = 'make migrate';
 
 		if($this->option('update'))
 			$commands[] = 'make update';

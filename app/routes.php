@@ -33,6 +33,16 @@ Route::group(array((Config::get('app.forceSsl')) ? 'https' : 'http'), function()
 		'before' => 'csrf',
 	));
 
+	Route::get('/login/github', array(
+		'as' => 'user.login.github',
+		'uses' => 'UserController@loginGithub',
+	));
+
+	Route::post('/login/github', array(
+		'as' => 'user.login.github',
+		'uses' => 'UserController@loginGithub',
+	));
+
 	Route::get('/register', array(
 		'as' => 'user.register',
 		'uses' => 'UserController@register',

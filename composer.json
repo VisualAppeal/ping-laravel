@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"cartalyst/sentry": "2.1.*",
-		"rmccue/requests": "1.6.*"
+		"rmccue/requests": "1.6.*",
+		"artdarek/oauth-4-laravel": "1.0.*"
 	},
 	"autoload": {
 		"classmap": [

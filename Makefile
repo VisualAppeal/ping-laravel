@@ -33,6 +33,7 @@ install:
 	@echo "Database set up."
 
 update:
+	@./composer.phar self-update
 	@./composer.phar update
 	@npm update
 	@./node_modules/bower/bin/bower update

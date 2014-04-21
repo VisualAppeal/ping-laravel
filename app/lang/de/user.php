@@ -47,6 +47,20 @@ return array(
 			'password_repeat' => 'Passwort wiederholen',
 			'submit' => 'Registrieren',
 		),
+
+		'social' => array(
+			'github' => array(
+				'no-emails' => 'In Ihrem GitHub Konto konnten keine E-Mail Adresse gefunden werden! Bitte fügen Sie eine E-Mail Adresse zu Ihrem GitHub Konto hinzu oder versuchen Sie die Registrierung mit einem anderen Dienst.',
+				'login' => 'Anmelden mit <strong>GitHub</strong>',
+			),
+		),
+	),
+
+	'social' => array(
+		'title' => 'Registrieren',
+		'headline' => 'Wählen Sie Ihre primäre E-Mail Adresse',
+		'description' => 'In Ihrem Konto wurden mehrere E-Mail Adressen gefunden, bitte wählen Sie die E-Mail Adresse aus mit der Sie sich registrieren wollen.',
+		'submit' => 'Registrieren',
 	),
 
 	'activate' => array(

@@ -51,6 +51,7 @@ return array(
 	'url' => 'http://127.0.0.1/ping/public',
 	'locale' => 'en',
 	'timezone' => 'Europe/Berlin',
+	'key' => '' // 32 random alphanumeric chars
 );
 ```
 
