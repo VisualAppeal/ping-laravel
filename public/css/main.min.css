@@ -1,7 +1,17 @@
+body {
+  color: #444;
+}
 header nav.navbar {
   border: none;
   border-radius: 0;
 }
 footer {
   margin-top: 20px;
+  color: #999;
+}
+footer a {
+  color: #666;
+}
+footer a:hover {
+  color: #333;
 }
