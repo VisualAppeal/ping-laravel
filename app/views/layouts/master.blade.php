@@ -82,7 +82,7 @@
 			</div>
 
 			<footer>
-				<p>&copy; 2013, <a href="http://github.com/t-visualappeal/">Tim Helfensdörfer</a></p>
+				<p>&copy; 2013 - {{ date('Y') }}, <a href="http://github.com/t-visualappeal/">Tim Helfensdörfer</a> | <a href="{{ URL::route('imprint') }}">Imprint</a> | <a href="{{ URL::route('privacy') }}">Privacy</a></p>
 			</footer>
 		</div>
 

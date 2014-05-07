@@ -13,6 +13,16 @@ View::composer('*', function($view) use($user, $guest) {
 	$view->with('user', $user);
 });
 
+Route::get('/imprint', array(
+	'as' => 'imprint',
+	'uses' => 'HomeController@imprint',
+));
+
+Route::get('/privacy', array(
+	'as' => 'privacy',
+	'uses' => 'HomeController@privacy',
+));
+
 /**
  * Account
  */
