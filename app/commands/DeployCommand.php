@@ -47,20 +47,22 @@ class DeployCommand extends Command {
 		$config = app()->config['remote.connections.'.$remote];
 
 		$commands = array(
+			'cd ' . $config['root'],
 			'php artisan down',
-			'cd '.$config['root'],
-			'git checkout -f',
-			'git pull -f',
-			'make',
-			'php artisan cache:clear',
-			'php artisan up',
+			'git fetch --all',
+			'git reset --hard origin/master',
+			'composer install --optimize-autoloader --no-dev',
 		);
 
-		if($this->option('migrate'))
+		if ($this->option('update'))
+			$commands[] = 'make update';
+
+		if ($this->option('migrate'))
 			$commands[] = 'make migrate';
 
-		if($this->option('update'))
-			$commands[] = 'make update';
+		$commands[] = 'make';
+		$commands[] = 'php artisan cache:clear';
+		$commands[] = 'php artisan up';
 
 		SSH::into($remote)->run(
 			$commands,
