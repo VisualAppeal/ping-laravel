@@ -13,11 +13,11 @@
 
 		@if ($guest)
 			<p>
-				<a href="{{ URL::route('user.register') }}" class="btn btn-primary">{{ trans('home.index.register') }}</a>
+				<a href="{{ URL::route('user.register') }}" class="btn btn-primary btn-lg">{{ trans('home.index.register') }}</a>
 			</p>
 		@else
 			<p>
-				<a href="{{ URL::route('check.index') }}" class="btn btn-primary">{{ trans('home.index.checks') }}</a>
+				<a href="{{ URL::route('check.index') }}" class="btn btn-primary btn-lg">{{ trans('home.index.checks') }}</a>
 			</p>
 		@endif
 	</div>
