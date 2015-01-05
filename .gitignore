@@ -10,3 +10,4 @@ composer.phar
 
 ping.log
 ping_error.log
+queue.pid

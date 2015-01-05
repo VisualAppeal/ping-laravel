@@ -52,17 +52,12 @@ class DeployCommand extends Command {
 			'git fetch --all',
 			'git reset --hard origin/master',
 			'composer install --optimize-autoloader --no-dev',
+			'php artisan migrate --package=cartalyst/sentry',
+			'php artisan migrate',
+			'grunt build',
+			'php artisan cache:clear',
+			'php artisan up',
 		);
-
-		if ($this->option('update'))
-			$commands[] = 'make update';
-
-		if ($this->option('migrate'))
-			$commands[] = 'make migrate';
-
-		$commands[] = 'make';
-		$commands[] = 'php artisan cache:clear';
-		$commands[] = 'php artisan up';
 
 		SSH::into($remote)->run(
 			$commands,
