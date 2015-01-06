@@ -73,7 +73,10 @@ return array(
 
 1. Clone the repository
 2. Create your config
-3. `cd `ping` && make configure && make install`
+3. `php artisan queue:failed-table`
+4. `php artisan migrate --package=cartalyst/sentry`
+5. `php artisan migrate`
+6. `grunt build`
 4. visit http://url-to-repository/public
 
 ## ToDo

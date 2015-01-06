@@ -72,7 +72,7 @@ return array(
 	*/
 
 	'failed' => array(
-		'database' => 'mysql',
+		'database' => 'app',
 		'table' => 'failed_jobs',
 	),
 
