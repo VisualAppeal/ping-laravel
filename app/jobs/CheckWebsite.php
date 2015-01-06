@@ -6,7 +6,9 @@ class CheckWebsite
 	{
 		$check = Check::findOrFail($data);
 		$headers = array();
-		$options = array();
+		$options = array(
+			//'verify' => false, // Do not verify certificate
+		);
 
 		if (!empty($check->username)) {
 			$options['auth'] = array($check->username, $check->password);
@@ -69,7 +71,7 @@ class CheckWebsite
 				'status_code' => $response->status_code,
 				'success' => false,
 				'content' => $response->body,
-				'headers' => json_encode($response->headers->getValues()),
+				'headers' => json_encode($response->headers),
 				'latency' => $latency,
 			))) {
 				$job->delete();
