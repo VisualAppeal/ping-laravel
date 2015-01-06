@@ -41,9 +41,13 @@ class CheckWebsite
 
 		if ($response->success) {
 			if (isset($lastCheck) && !$lastCheck->success) {
-				Mail::queue('email.check.online', array('check' => $check), function($message) use($check) {
-					$message->to($check->theUser->email)
-						->subject(trans('check.job.email.online.subject', array('title' => $check->title)));
+				Mail::queue('email.check.online', array(
+						'id' => $check->id,
+						'title' => $check->title,
+					),
+					function($message) use($check) {
+						$message->to($check->theUser->email)
+							->subject(trans('check.job.email.online.subject', array('title' => $check->title)));
 				});
 			}
 
@@ -59,10 +63,14 @@ class CheckWebsite
 			}
 		} else {
 			if (isset($lastCheck) && $lastCheck->success) {
-				Mail::queue('email.check.offline', array('check' => $check, 'response' => $response), function($message) use($check) {
-					$message->to($check->theUser->email)
-						->subject(trans('check.job.email.offline.subject', array('title' => $check->title)));
-
+				Mail::queue('email.check.offline', array(
+						'id' => $check->id,
+						'title' => $check->title,
+						'statusCode' => $response->status_code
+					),
+					function($message) use($check) {
+						$message->to($check->theUser->email)
+							->subject(trans('check.job.email.offline.subject', array('title' => $check->title)));
 				});
 			}
 
