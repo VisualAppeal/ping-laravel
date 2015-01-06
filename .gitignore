@@ -1,12 +1,10 @@
 /app/config/*
 /bootstrap/compiled.php
 /node_modules
-/public/js/main.min.js
 /public/js/vendor
 /vendor
 
 *.sublime-*
-composer.phar
 
 ping.log
 ping_error.log
