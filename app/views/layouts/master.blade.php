@@ -86,7 +86,7 @@
 			</footer>
 		</div>
 
-		<script type="text/javascript" src="{{ asset('js/vendor/jquery/jquery.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/vendor/jquery/dist/jquery.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 		<script type="text/javascript" src="//code.highcharts.com/stock/highstock.js"></script>
 		@yield('scripts')
