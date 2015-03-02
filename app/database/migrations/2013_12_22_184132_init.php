@@ -80,5 +80,4 @@ class Init extends Migration {
 		Schema::dropIfExists('users_companies');
 		Schema::dropIfExists('companies');
 	}
-
 }
