@@ -4,7 +4,7 @@
 	"keywords": ["ping", "uptime", "monitor"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*",
+		"laravel/framework": "6.20.*",
 		"cartalyst/sentry": "2.1.*",
 		"rmccue/requests": "1.6.*",
 		"artdarek/oauth-4-laravel": "1.0.*"
